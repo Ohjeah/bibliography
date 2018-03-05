@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage[
+    backend=bibtex8,
+    natbib=true,
+    style=numeric,
+    sorting=ynt,
+    doi=true,
+    isbn=false,
+    url=false,
+    hyperref=true
+]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\nocite{*}
+
+\printbibliography
+
+\end{document}
