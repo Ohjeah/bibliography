@@ -1,7 +1,12 @@
 language: python
 python:
-  - "3.5"
+  - "3.6"
+git:
+  submodules: false
+before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
 script:
-- py.test test.py
+ - python BibLatex-Check/biblatex_check.py -b references.bib
 notifications:
   email: false
