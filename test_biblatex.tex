@@ -11,6 +11,16 @@
 ]{biblatex}
 \addbibresource{references.bib}
 
+% if entry has doi print only doi, unless you force the url with keyword forceurl
+% if entry does not have doi, but eprint information, print eprint
+% else print url
+\renewbibmacro*{doi+eprint+url}{\iftoggle{bbx:url}
+        {\iffieldundef{doi} {\iffieldundef{eprint} {\usebibmacro{url+urldate}} {\usebibmacro{eprint}}}
+                            {\ifkeyword{forceurl} {\usebibmacro{url+urldate}} {} }}
+        {}
+\newunit\newblock \iftoggle{bbx:doi} {\printfield{doi}} {}}
+
+
 \usepackage{hyperref}
 
 \begin{document}
