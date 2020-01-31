@@ -1,15 +1,26 @@
 \documentclass{article}
-\usepackage[
-    backend=bibtex8,
-    natbib=true,
-    style=numeric,
-    sorting=ynt,
-    doi=true,
-    isbn=false,
-    url=false,
-    hyperref=true
-]{biblatex}
-\addbibresource{references.bib}
+
+\PassOptionsToPackage{%
+  backend=biber,bibencoding=utf8, %instead of bibtex
+  language=auto,%
+  %style=authoryear-comp, % Author 1999, 2010
+  %bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+  sorting=none, % name, year, title
+  maxbibnames=100, % default: 3, et al.
+  maxalphanames=1,
+  maxcitenames=1,
+  uniquelist=false,
+  %backref=true,%
+  isbn=false,
+  url=true,
+  doi=true,
+  defernumbers,
+  natbib=true % natbib compatibility mode (\citep and \citet still work)
+}{biblatex}
+    \usepackage{biblatex}
+
+% deactivate plus in label Qua+18 for Quade, Abel, Gout
+% \renewcommand*{\labelalphaothers}{}
 
 % if entry has doi print only doi, unless you force the url with keyword forceurl
 % if entry does not have doi, but eprint information, print eprint
@@ -21,7 +32,10 @@
 \newunit\newblock \iftoggle{bbx:doi} {\printfield{doi}} {}}
 
 
+
 \usepackage{hyperref}
+
+\addbibresource{references.bib}
 
 \begin{document}
 

@@ -1,6 +1,3 @@
-check:
-	python BibLatex-Check/biblatex_check.py -b references.bib
-
 %.pdf: %.tex
 	latexmk -pdf $@
 	latexmk -c $@
